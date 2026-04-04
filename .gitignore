@@ -1,0 +1,19 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Extracted Dataset
+split_enhanced_clahe_cl2
+split_enhanced_enlightenGAN
+split_ordered_ori_dataset
+
+# Unexracted Training Results
+DETECT/detect_clahe_cl2_notune.zip
+DETECT/detect_enlightenGAN_notune.zip
+DETECT/detect_ori_notune_ordered.zip
