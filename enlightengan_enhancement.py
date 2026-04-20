@@ -32,8 +32,7 @@ def process_split(split_name):
         
         enhanced = model.predict(img)
         
-        enhanced_resized = cv2.resize(enhanced, (original_w, original_h))
-        cv2.imwrite(os.path.join(output_images_dir, img_name), enhanced_resized)
+        cv2.imwrite(os.path.join(output_images_dir, img_name), enhanced)
 
     for label_file in os.listdir(input_labels_dir):
         shutil.copy2(
