@@ -3,7 +3,7 @@ import cv2
 import shutil
 from tqdm.notebook import tqdm
 
-DATASET_ROOT = "split_ordered_ori_dataset"
+INPUT_ROOT = "split_ordered_ori_dataset"
 OUTPUT_ROOT = "split_enhanced_clahe_cl2"
 CLIP_LIMIT = 2.0
 GRID_SIZE = (8, 8)
@@ -25,7 +25,7 @@ def apply_clahe(image):
 
 def collect_all_files():
     file_list = []
-    for root, _, files in os.walk(DATASET_ROOT):
+    for root, _, files in os.walk(INPUT_ROOT):
         for file in files:
             file_list.append(os.path.join(root, file))
     return file_list
@@ -37,7 +37,7 @@ def process_dataset():
     all_files = collect_all_files()
 
     for src_path in tqdm(all_files, desc="Processing", unit="file"):
-        relative_path = os.path.relpath(src_path, DATASET_ROOT)
+        relative_path = os.path.relpath(src_path, INPUT_ROOT)
         dst_path = os.path.join(OUTPUT_ROOT, relative_path)
 
         os.makedirs(os.path.dirname(dst_path), exist_ok=True)
